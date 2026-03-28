@@ -9,7 +9,7 @@ GitHub Pages에 배포할 수 있는 Supabase 기반 한줄 회고 앱입니다.
 - Supabase DB 저장
 - 최신순 조회
 - 삭제
-- GitHub Pages 배포 가능
+- GitHub Pages 자동 배포 가능
 
 ## 1) Supabase table 만들기
 
@@ -67,23 +67,28 @@ npm install
 npm run dev
 ```
 
-## 4) GitHub Pages 배포
+## 4) GitHub Pages 자동 배포 설정
 
-이 프로젝트는 `gh-pages` 패키지로 배포할 수 있게 설정되어 있습니다.
+이 저장소에는 GitHub Actions 기반 자동 배포 워크플로가 포함되어 있습니다.
 
-```bash
-npm run deploy
+### 저장소에서 해야 할 설정
+
+1. **Settings → Pages**
+2. **Build and deployment → Source**를 `GitHub Actions`로 변경
+3. **Settings → Secrets and variables → Actions**로 이동
+4. 아래 repository secrets 추가
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+
+그 뒤에는 `main` 브랜치에 push할 때마다 자동 배포됩니다.
+
+## 5) 배포 URL
+
+기본 Pages URL은 보통 아래 형식입니다.
+
+```text
+https://qutechoi.github.io/0327_one-line-retro/
 ```
-
-처음 배포 전에는 `vite.config.js`의 `base` 값을 저장소 이름에 맞게 둬야 합니다.
-현재는 자동으로 `/0327_one-line-retro/` 기준으로 맞춰두었습니다.
-
-## 5) GitHub Actions / Secrets
-
-GitHub Pages에 배포하면서 빌드 시 Supabase env를 주입하려면 repository secrets 또는 actions variables에 아래를 추가하세요.
-
-- `VITE_SUPABASE_URL`
-- `VITE_SUPABASE_ANON_KEY`
 
 ## Stack
 
@@ -91,3 +96,4 @@ GitHub Pages에 배포하면서 빌드 시 Supabase env를 주입하려면 repos
 - Vite
 - Supabase
 - GitHub Pages
+- GitHub Actions
