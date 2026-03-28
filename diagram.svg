@@ -1,0 +1,139 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9FC"/>
+      <stop offset="1" stop-color="#F4F6FF"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFF1F7"/>
+      <stop offset="1" stop-color="#F7F3FF"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#EEF8FF"/>
+      <stop offset="1" stop-color="#F4FFFB"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFF8EA"/>
+      <stop offset="1" stop-color="#FFF2F2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#7C69B2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0L12 6L0 12V0Z" fill="#7562A8"/>
+    </marker>
+    <style>
+      .title { font: 700 30px 'Pretendard', 'Noto Sans KR', sans-serif; fill: #2E2640; }
+      .subtitle { font: 500 16px 'Pretendard', 'Noto Sans KR', sans-serif; fill: #6C6480; }
+      .h { font: 700 20px 'Pretendard', 'Noto Sans KR', sans-serif; fill: #332A49; }
+      .b { font: 500 15px 'Pretendard', 'Noto Sans KR', sans-serif; fill: #544C66; }
+      .s { font: 600 13px 'Pretendard', 'Noto Sans KR', sans-serif; fill: #7A6E94; }
+      .label { font: 700 14px 'Pretendard', 'Noto Sans KR', sans-serif; fill: white; }
+      .mono { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #51496A; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" rx="28" fill="url(#bg)"/>
+
+  <text x="60" y="68" class="title">One Line Retro 시스템 작동 원리</text>
+  <text x="60" y="96" class="subtitle">GitHub Pages + React/Vite + Supabase + GitHub Actions 자동 배포 구조</text>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="140" width="240" height="130" rx="24" fill="url(#card1)" stroke="#E4DAF8"/>
+    <text x="90" y="182" class="h">1) 사용자 브라우저</text>
+    <text x="90" y="212" class="b">• GitHub Pages 주소 접속</text>
+    <text x="90" y="236" class="b">• 회고 입력 / 기분 선택</text>
+    <text x="90" y="260" class="b">• 조회 / 삭제 요청 실행</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="380" y="120" width="330" height="180" rx="24" fill="url(#card2)" stroke="#D5E8FF"/>
+    <text x="410" y="162" class="h">2) 프런트엔드 앱</text>
+    <text x="410" y="190" class="b">React + Vite 로 만든 정적 웹앱</text>
+    <text x="410" y="220" class="b">브라우저에서 실행됨</text>
+    <text x="410" y="246" class="mono">src/App.jsx</text>
+    <text x="410" y="270" class="mono">src/lib/supabase.js</text>
+    <rect x="535" y="132" width="145" height="28" rx="14" fill="#8F73FF"/>
+    <text x="556" y="151" class="label">GitHub Pages 호스팅</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="800" y="120" width="330" height="220" rx="24" fill="url(#card3)" stroke="#F0D9B6"/>
+    <text x="830" y="162" class="h">3) Supabase</text>
+    <text x="830" y="192" class="b">Postgres 데이터베이스</text>
+    <text x="830" y="220" class="mono">public.retros</text>
+    <text x="830" y="246" class="b">컬럼:</text>
+    <text x="830" y="270" class="mono">id / content / mood / created_at</text>
+    <text x="830" y="302" class="b">RLS 정책으로 anon 접근 제어</text>
+    <text x="830" y="328" class="b">• select</text>
+    <text x="910" y="328" class="b">• insert</text>
+    <text x="985" y="328" class="b">• delete</text>
+  </g>
+
+  <path d="M300 205H365" stroke="#7562A8" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M710 210H785" stroke="#7562A8" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <text x="315" y="192" class="s">사용자 입력</text>
+  <text x="726" y="192" class="s">Supabase JS 요청</text>
+
+  <g filter="url(#shadow)">
+    <rect x="380" y="360" width="750" height="170" rx="24" fill="white" stroke="#E7E2F7"/>
+    <text x="410" y="402" class="h">4) 실제 데이터 흐름 (CRUD)</text>
+
+    <rect x="420" y="430" width="150" height="64" rx="18" fill="#F7F3FF" stroke="#DED1FF"/>
+    <text x="455" y="468" class="h" style="font-size:18px;">Create</text>
+    <text x="443" y="488" class="s">회고 저장</text>
+
+    <rect x="610" y="430" width="150" height="64" rx="18" fill="#F3FAFF" stroke="#CFE6FF"/>
+    <text x="653" y="468" class="h" style="font-size:18px;">Read</text>
+    <text x="632" y="488" class="s">최신순 조회</text>
+
+    <rect x="800" y="430" width="150" height="64" rx="18" fill="#FFF7EF" stroke="#FFE0BE"/>
+    <text x="839" y="468" class="h" style="font-size:18px;">Delete</text>
+    <text x="835" y="488" class="s">기록 삭제</text>
+
+    <path d="M570 462H595" stroke="#7562A8" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M760 462H785" stroke="#7562A8" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="972" y="470" class="b">모든 요청은 브라우저 → Supabase로 직접 감</text>
+    <text x="972" y="492" class="b">중간 서버 없이 동작</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="580" width="1070" height="130" rx="24" fill="white" stroke="#E7E2F7"/>
+    <text x="90" y="620" class="h">5) 배포 파이프라인</text>
+
+    <rect x="100" y="640" width="180" height="42" rx="16" fill="#F7F3FF" stroke="#DED1FF"/>
+    <text x="132" y="666" class="b">GitHub 저장소</text>
+
+    <rect x="330" y="640" width="220" height="42" rx="16" fill="#F3FAFF" stroke="#CFE6FF"/>
+    <text x="355" y="666" class="b">GitHub Actions 빌드</text>
+
+    <rect x="600" y="640" width="230" height="42" rx="16" fill="#FFF7EF" stroke="#FFE0BE"/>
+    <text x="633" y="666" class="b">정적 파일(dist) 생성</text>
+
+    <rect x="880" y="640" width="210" height="42" rx="16" fill="#F7FFF7" stroke="#CFEFD4"/>
+    <text x="920" y="666" class="b">GitHub Pages 배포</text>
+
+    <path d="M280 661H318" stroke="#7562A8" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M550 661H588" stroke="#7562A8" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M830 661H868" stroke="#7562A8" stroke-width="3" marker-end="url(#arrow)"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="310" width="240" height="180" rx="24" fill="white" stroke="#E7E2F7"/>
+    <text x="90" y="348" class="h">핵심 환경 변수</text>
+    <text x="90" y="382" class="mono">VITE_SUPABASE_URL</text>
+    <text x="90" y="408" class="mono">VITE_SUPABASE_ANON_KEY</text>
+    <text x="90" y="442" class="b">이 값은 GitHub Actions가</text>
+    <text x="90" y="466" class="b">빌드할 때 주입됨</text>
+    <text x="90" y="496" class="b">Repository Secrets에 저장</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="800" y="370" width="330" height="140" rx="24" fill="#FFFDFE" stroke="#F0E4F4"/>
+    <text x="830" y="408" class="h">보안 포인트</text>
+    <text x="830" y="438" class="b">• anon key는 프런트에서 사용 가능</text>
+    <text x="830" y="462" class="b">• 대신 RLS 정책으로 접근 제어</text>
+    <text x="830" y="486" class="b">• 서버 비밀키(service role)는 넣지 않음</text>
+  </g>
+</svg>
